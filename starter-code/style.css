@@ -1,4 +1,7 @@
 
+body {
+	font-family: "Roboto", sans-serif;
+}
 h1 {
 	color: rgb(2, 132, 130);
 }
@@ -10,8 +13,8 @@ h1,h2,p,footer {
 }
 .board {
 	height: 50%;
-	width: 50%;
 	display: inline-block;
+	text-align: center;
 }
 .card {
 	height: 200px;
@@ -20,13 +23,16 @@ h1,h2,p,footer {
 	background: yellow;
 	border-radius: 10px;
 	float: left;
-	margin: 8%;
+	margin: 4%;
 
 }
 .card:hover {
 	background: gold;
+	border: 2px solid black;
+	height: 198px;
+	width: 148px;
 }
-.name {ß
+.name {
 	color: #ff0000;
 }
 nav{
@@ -51,7 +57,8 @@ img {
 	height: 200px;
 	width: 150px;
 }
-.reset {
-	padding: 0;
-	margin: 0;
+.controls {
+	text-align: center;
 }
+
+
