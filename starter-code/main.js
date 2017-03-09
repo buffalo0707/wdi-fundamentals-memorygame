@@ -1,5 +1,5 @@
 
-var cards = ['queen', 'queen', 'queen', 'queen','king', 'king', 'king', 'king','jack', 'jack', 'jack', 'jack',];
+var cards = ['queen', 'queen', 'queen', 'king', 'king', 'king', 'jack', 'jack', 'jack', 'ace', 'ace', 'ace'];
 var cardsInPlay = [];
 var score = 0
 
@@ -14,10 +14,24 @@ var createBoard = function(a) {
 		// with class of 'card'
 		newCard.className = 'card';
 		newCard.setAttribute('data-card', cards[i]);
+		// show all cards face up
+		if (newCard.getAttribute('data-card') === 'king') {
+		// king
+			newCard.innerHTML = "<img src='http://i.imgur.com/bnuv5Im.png'>";
+		} else if (newCard.getAttribute('data-card') === 'queen') {
+		// queen
+			newCard.innerHTML = "<img src='http://i.imgur.com/v6buNt2.png'>";
+		} else if (newCard.getAttribute('data-card') === 'jack'){
+			// jack
+			newCard.innerHTML = "<img src='http://www.madore.org/~david/images/cards/english/jack-hearts.png'>";
+		} else {
+			// ace
+			newCard.innerHTML = "<img src='http://www.cs.nyu.edu/courses/fall09/V22.0061-001/newcards/images/Ace%20of%20Hearts%201.jpg'>";
+		}
 		// add new element to the element with id of 'game-board'
 		document.getElementById('game-board').appendChild(newCard);
 		newCard.addEventListener('click', isTwoCards)
-	}
+		}
 }
 
 var isTwoCards = function() {
@@ -26,11 +40,17 @@ var isTwoCards = function() {
 	// show the card's image (flip face up)
 	console.log(this.getAttribute('data-card'));
 	if (this.getAttribute('data-card') === 'king') {
-		this.innerHTML = "<img src='http://i.imgur.com/bnuv5Im.png'>"; // king
+		// king
+		this.innerHTML = "<img src='http://i.imgur.com/bnuv5Im.png'>";
 	} else if (this.getAttribute('data-card') === 'queen') {
-		this.innerHTML = "<img src='http://i.imgur.com/v6buNt2.png'>"; //queen
+		// queen
+		this.innerHTML = "<img src='http://i.imgur.com/v6buNt2.png'>";
+	} else if (this.getAttribute('data-card') === 'jack'){
+		// jack
+		this.innerHTML = "<img src='http://www.madore.org/~david/images/cards/english/jack-hearts.png'>";
 	} else {
-		this.innerHTML = "<img src='https://sourceforge.net/p/vector-cards/screenshot/Jack_of_Spades.png'>"; //queen
+		// ace
+		this.innerHTML = "<img src='http://www.cs.nyu.edu/courses/fall09/V22.0061-001/newcards/images/Ace%20of%20Hearts%201.jpg'>";
 	}
   // if you have two cards in play, check for a match
   	if (cardsInPlay.length === 2) {
@@ -59,10 +79,10 @@ var isMatch = function(cardsInPlay) {
 	}
 }
 
-// Run function to create cards
+// Run function to create cards. Cards are face up at first in order for player to memorize pattern
 createBoard(cards.length);
 
-// When Reset button is clicked
+// Clicking reset button flips all cards face down and sets score to 0
 document.getElementById("reset").addEventListener("click", function(){
 	//find all cards on the board
 	var cardsInPlay = document.getElementsByClassName('card');
@@ -75,5 +95,7 @@ document.getElementById("reset").addEventListener("click", function(){
 	score = 0;
 	// set score display to equal variable, which is 0
 	document.getElementById('score').innerHTML = "Score: " + score;
+	// change button label after clicked
+	document.getElementById('reset').innerHTML = "Flip and Reset";
 });
 
