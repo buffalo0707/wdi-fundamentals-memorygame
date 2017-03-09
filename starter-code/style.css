@@ -21,6 +21,8 @@ h1,h2,p,footer {
 	width: 150px;
 	border: 1px solid black;
 	background: yellow;
+	background-image: url('http://opengameart.org/sites/default/files/styles/watermarked/public/card%20back%20orange.png');
+	background-size: 150px 200px;
 	border-radius: 10px;
 	float: left;
 	margin: 4%;
@@ -28,6 +30,8 @@ h1,h2,p,footer {
 }
 .card:hover {
 	background: gold;
+	background-image: url('http://opengameart.org/sites/default/files/styles/watermarked/public/card%20back%20blue.png');
+	background-size: 150px 200px;
 	border: 2px solid black;
 	height: 198px;
 	width: 148px;
@@ -39,7 +43,7 @@ nav{
 	background-color: #808080;
 }
 nav a{
-	background-color: #ffbf00;
+	background-color: #4CAF50;
 	color: white;
 	padding: 35px;
 	display: block;
@@ -61,7 +65,7 @@ img {
 	text-align: center;
 }
 button {
-	    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -69,6 +73,13 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin-bottom: 1em;
 }
+.score {
+	font-size: 20px;
+	font-weight: 800;
+}
+
+
 
 

@@ -1,7 +1,8 @@
 
-var cards = ['queen', 'queen', 'queen', 'king', 'king', 'king', 'jack', 'jack', 'jack', 'ace', 'ace', 'ace'];
+var cards = ['ace', 'king', 'queen', 'jack', 'ten', 'joker', 'ace', 'king', 'queen', 'jack', 'ten', 'joker',];
 var cardsInPlay = [];
 var score = 0
+var flippedCards = 0
 
 // Function for creating cards. Will create the number of cards passed in as parameter
 var createBoard = function(a) {
@@ -13,20 +14,28 @@ var createBoard = function(a) {
 		var newCard = document.createElement('div');
 		// with class of 'card'
 		newCard.className = 'card';
+		// and data-card element showing the card type (i.e. queen, king, etc.)
 		newCard.setAttribute('data-card', cards[i]);
 		// show all cards face up
 		if (newCard.getAttribute('data-card') === 'king') {
-		// king
-			newCard.innerHTML = "<img src='http://i.imgur.com/bnuv5Im.png'>";
+			// king
+			newCard.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/King_of_hearts2.svg/2000px-King_of_hearts2.svg.png'>";
 		} else if (newCard.getAttribute('data-card') === 'queen') {
-		// queen
-			newCard.innerHTML = "<img src='http://i.imgur.com/v6buNt2.png'>";
+			// queen
+			newCard.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Queen_of_hearts2.svg/2000px-Queen_of_hearts2.svg.png'>";
 		} else if (newCard.getAttribute('data-card') === 'jack'){
 			// jack
-			newCard.innerHTML = "<img src='http://www.madore.org/~david/images/cards/english/jack-hearts.png'>";
-		} else {
+			newCard.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Jack_of_hearts2.svg/2000px-Jack_of_hearts2.svg.png'>";
+		} else if (newCard.getAttribute('data-card') === 'ace') {
 			// ace
-			newCard.innerHTML = "<img src='http://www.cs.nyu.edu/courses/fall09/V22.0061-001/newcards/images/Ace%20of%20Hearts%201.jpg'>";
+			newCard.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Playing_card_heart_A.svg/2000px-Playing_card_heart_A.svg.png'>";
+		} else if (newCard.getAttribute('data-card') === 'ten') {
+			// ten
+			newCard.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Playing_card_heart_10.svg/2000px-Playing_card_heart_10.svg.png'>"
+		} else {
+			// joker
+			newCard.innerHTML = "<img src='http://monolithicgames.com/wp-content/uploads/2014/06/45-Joker.png'>"
+
 		}
 		// add new element to the element with id of 'game-board'
 		document.getElementById('game-board').appendChild(newCard);
@@ -35,31 +44,43 @@ var createBoard = function(a) {
 }
 
 var isTwoCards = function() {
-  // add card to array of cards in play
-  cardsInPlay.push(this.getAttribute('data-card'));
-	// show the card's image (flip face up)
-	console.log(this.getAttribute('data-card'));
-	if (this.getAttribute('data-card') === 'king') {
-		// king
-		this.innerHTML = "<img src='http://i.imgur.com/bnuv5Im.png'>";
-	} else if (this.getAttribute('data-card') === 'queen') {
-		// queen
-		this.innerHTML = "<img src='http://i.imgur.com/v6buNt2.png'>";
-	} else if (this.getAttribute('data-card') === 'jack'){
-		// jack
-		this.innerHTML = "<img src='http://www.madore.org/~david/images/cards/english/jack-hearts.png'>";
-	} else {
-		// ace
-		this.innerHTML = "<img src='http://www.cs.nyu.edu/courses/fall09/V22.0061-001/newcards/images/Ace%20of%20Hearts%201.jpg'>";
-	}
-  // if you have two cards in play, check for a match
-  	if (cardsInPlay.length === 2) {
+	// if card is not flipped (not showing card image), proceed. Nothing will happen if card is already flipped
+	if (this.innerHTML === ""){
+		//increment card
+		flippedCards += 1;
+		console.log (flippedCards);
+	  // add card to array of cards in play
+	  cardsInPlay.push(this.getAttribute('data-card'));
+		// show the card's image (flip face up)
+		console.log(this.getAttribute('data-card'));
+		if (this.getAttribute('data-card') === 'king') {
+			// king
+			this.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/King_of_hearts2.svg/2000px-King_of_hearts2.svg.png'>";
+		} else if (this.getAttribute('data-card') === 'queen') {
+			// queen
+			this.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Queen_of_hearts2.svg/2000px-Queen_of_hearts2.svg.png'>";
+		} else if (this.getAttribute('data-card') === 'jack'){
+			// jack
+			this.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Jack_of_hearts2.svg/2000px-Jack_of_hearts2.svg.png'>";
+		} else if (this.getAttribute('data-card') === 'ace'){
+			// ace
+			this.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Playing_card_heart_A.svg/2000px-Playing_card_heart_A.svg.png'>";
+		} else if (this.getAttribute('data-card') === 'ten') {
+			// ten
+			this.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Playing_card_heart_10.svg/2000px-Playing_card_heart_10.svg.png'>"
+		} else {
+			// joker
+			this.innerHTML = "<img src='http://monolithicgames.com/wp-content/uploads/2014/06/45-Joker.png'>"
+		}
+	  // if you have two cards in play, check for a match
+	  	if (cardsInPlay.length === 2) {
 
-    // pass the cardsInPlay as an argument to the isMatch function
-    isMatch(cardsInPlay);
+	    // pass the cardsInPlay as an argument to the isMatch function
+	    isMatch(cardsInPlay);
 
-    // clear cards in play array for your next try
-    cardsInPlay = [];
+	    // clear cards in play array for your next try
+	    cardsInPlay = [];
+		}
 	}
  }
 
@@ -72,10 +93,15 @@ var isMatch = function(cardsInPlay) {
 		// increment score total by 1
 		score += 1;
 		// update score element with new score
-		document.getElementById('score').innerHTML = "Score: " + score
+		document.getElementById('score').innerHTML = "Score: " + score + " Internets";
 	} else {
 		// if cards do not match, display message of complete failure
 		alert("Not a match... Try again!");
+	}
+	// if all cards have been flipped
+	if (flippedCards === cards.length) {
+		// tell player the game is over, and show score
+		alert("Game Over! Your score is: " + score);
 	}
 }
 
@@ -94,7 +120,7 @@ document.getElementById("reset").addEventListener("click", function(){
     // set score variable back to 0
 	score = 0;
 	// set score display to equal variable, which is 0
-	document.getElementById('score').innerHTML = "Score: " + score;
+	document.getElementById('score').innerHTML = "Score: " + score + " Internets";
 	// change button label after clicked
 	document.getElementById('reset').innerHTML = "Flip and Reset";
 });
