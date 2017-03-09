@@ -1,5 +1,5 @@
 
-var cards = ['queen', 'queen', 'king', 'king','queen', 'queen', 'king', 'king','queen', 'queen', 'king', 'king',];
+var cards = ['queen', 'queen', 'queen', 'queen','king', 'king', 'king', 'king','jack', 'jack', 'jack', 'jack',];
 var cardsInPlay = [];
 var score = 0
 
@@ -27,8 +27,10 @@ var isTwoCards = function() {
 	console.log(this.getAttribute('data-card'));
 	if (this.getAttribute('data-card') === 'king') {
 		this.innerHTML = "<img src='http://i.imgur.com/bnuv5Im.png'>"; // king
-	} else {
+	} else if (this.getAttribute('data-card') === 'queen') {
 		this.innerHTML = "<img src='http://i.imgur.com/v6buNt2.png'>"; //queen
+	} else {
+		this.innerHTML = "<img src='https://sourceforge.net/p/vector-cards/screenshot/Jack_of_Spades.png'>"; //queen
 	}
   // if you have two cards in play, check for a match
   	if (cardsInPlay.length === 2) {
@@ -74,3 +76,4 @@ document.getElementById("reset").addEventListener("click", function(){
 	// set score display to equal variable, which is 0
 	document.getElementById('score').innerHTML = "Score: " + score;
 });
+
