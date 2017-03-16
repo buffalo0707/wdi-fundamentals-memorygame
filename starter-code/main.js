@@ -21,13 +21,13 @@ var createBoard = function(a) {
 		// show all cards face up
 		if (newCard.getAttribute('data-card') === 'king') {
 			// king
-			newCard.innerHTML = "<img src='assets/king_of_hearts.png'>";
+			newCard.innerHTML = "<img src='assets/king_of_hearts2.png'>";
 		} else if (newCard.getAttribute('data-card') === 'queen') {
 			// queen
-			newCard.innerHTML = "<img src='assets/queen_of_hearts.png'>";
+			newCard.innerHTML = "<img src='assets/queen_of_hearts2.png'>";
 		} else if (newCard.getAttribute('data-card') === 'jack') {
 			// jack
-			newCard.innerHTML = "<img src='assets/jack_of_hearts.png'>";
+			newCard.innerHTML = "<img src='assets/jack_of_hearts2.png'>";
 		} else if (newCard.getAttribute('data-card') === 'ace') {
 			// ace
 			newCard.innerHTML = "<img src='assets/ace_of_hearts.png'>";
@@ -55,13 +55,13 @@ var isTwoCards = function() {
 		// show the card's image (flip face up)
 		if (this.getAttribute('data-card') === 'king') {
 			// king
-			this.innerHTML = "<img src='assets/king_of_hearts.png'>";
+			this.innerHTML = "<img src='assets/king_of_hearts2.png'>";
 		} else if (this.getAttribute('data-card') === 'queen') {
 			// queen
-			this.innerHTML = "<img src='assets/queen_of_hearts.png'>";
+			this.innerHTML = "<img src='assets/queen_of_hearts2.png'>";
 		} else if (this.getAttribute('data-card') === 'jack') {
 			// jack
-			this.innerHTML = "<img src='assets/jack_of_hearts.png'>";
+			this.innerHTML = "<img src='assets/jack_of_hearts2.png'>";
 		} else if (this.getAttribute('data-card') === 'ace') {
 			// ace
 			this.innerHTML = "<img src='assets/ace_of_hearts.png'>";
