@@ -14,7 +14,8 @@ h1,h2,p,footer {
 .board {
 	height: 50%;
 	display: inline-block;
-	text-align: center;
+	text-align: left;
+	border: 1px solid black;
 }
 .card {
 	height: 200px;
@@ -25,8 +26,7 @@ h1,h2,p,footer {
 	background-size: 150px 200px;
 	border-radius: 10px;
 	float: left;
-	margin: 4%;
-
+	margin: 3%;
 }
 .card:hover {
 	background: gold;
@@ -78,6 +78,9 @@ button {
 .score {
 	font-size: 20px;
 	font-weight: 800;
+}
+.hidden {
+	display: none;
 }
 
 

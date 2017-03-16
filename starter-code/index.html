@@ -9,28 +9,58 @@
   
     <nav class="clearfix">
       <a href="#instructions">Instructions</a>
-      <a href="#game-board">Game</a>
+      <a href="#reset">Game</a>
     </nav>
     
     <body>
+    <section id="select_game">
+      <h1>Select a game:</h1>
+      <div class="controls">
+        <button type="button" id="blackjack">Blackjack</button>
+        <button type="button" id="memory">Memory Game</button>
+      </div>
+    </section>
+    <section class="hidden" id="memory_game">
     	<h1>Memory Game</h1>
     	<h2 id="instructions">Instructions</h2>
     	<p>
     		Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are         flipped face up over each turn. The object of the game is to turn over pairs of matching cards.
         </br> </br>
-        Take a close look at the cards below and memorize their order. When you are ready, click the Begin button. 
+        Take a close look at the cards below and memorize their order. When you are ready, click the <strong>Begin</strong> button. 
+        </br> </br>
+        To try again with the same card layout, click the <strong>Reset</strong> button.
+        </br> </br>
+        To reshuffle the cards, click <strong>New Game</strong>.
     	</p>
     <div class="controls">
-    <button class="reset" type="button" id="reset">Begin!</button>
+   
+    <button class="reset" type="button" id="reset">Begin!</button> </br>
+    <button class="new" type="button" id="new">New Game</button>
     </br>
-    <span class="score" id="score"></span>
+    <span class="score" id="score">Score: 0 Internets</span>
     </div>
+    </section>
+    <section class="hidden" id="blackjack_game">
+      <h1>Blackjack</h1>
+      <h2 id="instructions">Instructions</h2>
+      <p>
+        This is Blackjack!
+        </br> </br>
+        Welcome to the simplest game of Blackjack you've ever played. No dealer. No betting. No point!
+        </br> </br>
+        If the cards dealt to you equal 21, you win!
+        </br> </br>
+        Do it!
+      </p>
+    <div class="controls">
+   
+    <button type="button" id="deal">Shuffle up and deal!</button> <button type="button" class="hidden" id="hit_me">Hit Me!</button>  </br>
+    <span class="score" id="blackjackScore"></span>
+    </div>
+    </section>
     <div class="board" id="game-board">
-
   	</div>
-  	<footer>
-  		Created with &hearts; by <span class="name">Alan</span>
-	</footer>
+  	<footer>Created with &hearts; by <span class="name">Alan</span></footer>
   <script src="main.js"></script>
   </body>
 </html>
